@@ -3,6 +3,7 @@ package org.example.pomodoro
 class Task {
 	String summary
 	String details
+	String status
 	Date dateCreated
 	Date deadline
 	Long timeSpent = 0L
@@ -11,7 +12,8 @@ class Task {
 	
     static constraints = {
 		summary blank: false, unique: true
-		details balnk: false, maxsize: 1000
+		details balnk: false, maxSize: 1000
+		status inList: [ "Open", "Done" ]
 		deadline nullable: true
 		timeSpent min: 0L
     }
